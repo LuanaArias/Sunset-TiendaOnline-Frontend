@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { crearProducto } from "../../services/createProducto";
+import './CrearProducto.css'
 
 export default function CrearProducto() {
     const [nombre, setNombre] = useState("");
@@ -35,7 +36,8 @@ export default function CrearProducto() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <div className="crear-producto-wrapper">
+            <form onSubmit={handleSubmit} className="crear-producto-form">
             <h2>Crear producto</h2>
 
             <input
@@ -77,5 +79,7 @@ export default function CrearProducto() {
 
             <button type="submit">Crear</button>
         </form>
+        </div>
+        
     );
 }

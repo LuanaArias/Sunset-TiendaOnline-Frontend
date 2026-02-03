@@ -1,35 +1,44 @@
 import { useEffect, useState } from "react";
 import { getProductos } from "../../services/getPrductos";
+import "./MostrarProductos.css";
 
 export default function MostrarProductos() {
-    const [productos, setProductos] = useState([]);
+  const [productos, setProductos] = useState([]);
 
-    useEffect(() => {
-        getProductos().then(setProductos);
-    }, []);
+  useEffect(() => {
+    getProductos().then(setProductos);
+  }, []);
 
-    return (
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
-            {productos.map(p => (
-                <div key={p.id} style={{ border: "1px solid #ccc", padding: 10 }}>
-                    <img
-                        src={p.imagen}
-                        alt={p.nombre}
-                        style={{ width: "100%", height: 200, objectFit: "cover" }}
-                    />
-                    <h3>{p.nombre}</h3>
-                    <p>{p.descripcion}</p>
-                    <strong>${p.precio}</strong>
+  return (
+    <div className="product-grid">
+      {productos.map(p => (
+        <div key={p.id} className="product-card">
 
-                    <div>
-                        {p.stockPorTalle.map(s => (
-                            <span key={s.id}>
-                                {s.talle}: {s.cantidad}{" "}
-                            </span>
-                        ))}
-                    </div>
-                </div>
-            ))}
+          <div className="product-image-wrapper">
+            <img src={p.imagen} alt={p.nombre} />
+          </div>
+
+          <div className="product-content">
+            <h3>{p.nombre}</h3>
+            <p>{p.descripcion}</p>
+
+            <span className="product-price">${p.precio}</span>
+
+            <div className="product-sizes">
+              {p.stockPorTalle.map(s => (
+                <span key={s.id} className="size-chip">
+                  {s.talle} · {s.cantidad}
+                </span>
+              ))}
+            </div>
+
+            <button className="product-button">
+              Agregar al carrito
+            </button>
+
+          </div>
         </div>
-    );
+      ))}
+    </div>
+  );
 }

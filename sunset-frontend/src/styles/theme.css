@@ -1,0 +1,37 @@
+:root {
+  --bg: #fff7f3;
+  --text: #2b1b16;
+
+  --primary: #ff7a24;
+  --primary-hover: #ff6d54;
+
+  --accent: #f76d75;
+  --highlight: #e8728f;
+  --secondary: #c97ba5;
+
+  --card: #ffffff;
+  --border: #ffd2c2;
+}
+
+[data-theme="dark"] {
+  --bg: #140b10;
+  --text: #fff0ea;
+
+  --primary: #ff7a24;
+  --primary-hover: #ff6d54;
+
+  --accent: #f76d75;
+  --highlight: #e8728f;
+  --secondary: #c97ba5;
+
+  --card: #241218;
+  --border: #3a1c27;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  font-family: system-ui;
+  transition: all 0.3s ease;
+}
