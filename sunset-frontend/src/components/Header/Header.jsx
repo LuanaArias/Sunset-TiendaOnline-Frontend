@@ -1,22 +1,27 @@
 import SunsetLogo from "../../assets/SunsetLogo.png";
 import "./Header.css";
 import Compra from "../../assets/iconCompra.png";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
+  const navigate = useNavigate();
 
+  function handleProductosClick() { 
+    navigate("/");
+   }
     return (
         <div className="header">
             <div >
-                <img className="logo-imagen-header" src={SunsetLogo} />
+                <img onClick={() => handleProductosClick()} className="logo-imagen-header" src={SunsetLogo} />
             </div>
             <div className="componente-header">
-                <a href="default.asp">Productos</a>
+                <a onClick={() => handleProductosClick()}>Productos</a>
             </div>
             <div className="componente-header">
-                <a href="default.asp">Ofertas</a>
+                <a href="">Ofertas</a>
             </div>
             <div className="componente-header" >
-                <a href="default.asp">Nosotros</a>
+                <a href="">Nosotros</a>
             </div>
             <div className="buscador">
                 <input
