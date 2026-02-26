@@ -1,18 +1,26 @@
 import { useEffect, useState } from "react";
 import { getProductos } from "../../services/getPrductos";
 import "./MostrarProductos.css";
+import { useNavigate } from "react-router-dom";
 
 export default function MostrarProductos() {
   const [productos, setProductos] = useState([]);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     getProductos().then(setProductos);
   }, []);
 
+  
+  function handleProductoClick(id) { 
+    navigate(`/producto/${id}`);
+   }
+
   return (
     <div className="product-grid">
       {productos.map(p => (
-        <div key={p.id} className="product-card">
+        <div key={p.id} className="product-card" onClick={() => handleProductoClick(p.id)}>
 
           <div className="product-image-wrapper">
             <img src={p.imagen} alt={p.nombre} />
