@@ -1,0 +1,124 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-bottom: 111px;
+    min-height: 2vh;
+    display: flex;
+    align-items: center;
+    background-color: var(--bg);
+    z-index: 1000;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .2);
+
+}
+
+.logo-imagen-header {
+    width: 80px;
+    height: 80px;
+
+}
+
+.componente-header {
+    padding: 2%;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    color: var(--secondary);
+    color: #ff7a24;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.buscador {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.buscador input {
+    width: 60%;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 1rem;
+    max-width: 1150px;
+    width: 100%;
+    border-color: var(--primary);
+
+
+}
+
+.buscador input:focus {
+    border-color: #ff100c;
+}
+
+.bolsa-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.bolsa-btn:hover {
+    transform: scale(1.1);
+}
+
+
+
+@media (max-width: 600px) {
+
+    .header {
+        justify-content: center;
+    }
+
+    .componente-header {
+        display: none;
+    }
+
+    .buscador {
+        width: 100%;
+        order: 2;
+        margin-top: 0.5rem;
+    }
+
+    .bolsa-btn {
+        order: 3;
+    }
+
+    .logo-imagen-header {
+        width: 60px;
+    }
+}
+
+.main-content {
+    padding-top: 90px;
+}
+
+
+/* Con todo el nav incluido cuando se achica la pantalla
+@media (max-width: 480px) {
+
+    .header {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .buscador {
+        order: 3;
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    .buscador input {
+        max-width: 90%;
+    }
+
+    .logo-imagen-header {
+        width: 60px;
+        height: auto;
+    }
+
+} */
