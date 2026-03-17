@@ -18,7 +18,7 @@ export default function MostrarProductos() {
    }
 
   return (
-    <div className="product-grid">
+    <div className="product-grid mostrar-productos margin-top">
       {productos.map(p => (
         <div key={p.id} className="product-card" onClick={() => handleProductoClick(p.id)}>
 
